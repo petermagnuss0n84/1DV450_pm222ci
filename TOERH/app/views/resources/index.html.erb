@@ -1,0 +1,12 @@
+<h1>Alla resurser</h1>
+
+<% @resources.each do |resource| %>
+
+<%= link_to resource.description, resource.url%></br>
+
+	<% @users.each do |user| %>
+
+	<%= link_to user.firstname, user_path(user) %></br>
+	<% end %>
+
+<% end %>

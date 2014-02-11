@@ -1,0 +1,44 @@
+<h1>Skapa en ny resurs</h1>
+
+<%= form_for @resource do |f| %>
+
+	<div class="text_field">
+		<%= f.label :resursnamn %>
+		<%= f.text_field :namn %>
+	</div>
+
+	<div class="text_field">
+		<%= f.label :url %>
+		<%= f.text_field :url %>
+	</div>
+
+	<div class="text_field">
+		<%= f.label :description %>
+		<%= f.text_field :description %>
+	</div>
+
+	<div class="select">
+		<%= f.label :användare %>
+		<%= f.select :user_id, options_from_collection_for_select(User.all, :id, :firstname)%>
+	</div>
+
+	<div class="select">
+		<%= f.label :filtyp %>
+		<%= f.select :resource_type_id, options_from_collection_for_select(ResourceType.all, :id, :resource_type)%>
+	</div>
+
+	<div class="select">
+		<%= f.label :licenstyp %>
+		<%= f.select :licence_id, options_from_collection_for_select(Licence.all, :id, :licence_typ)%>
+	</div>
+
+	<!-- <div class="select">
+		<%= f.label :tagg %>
+		<%= f.select :tag_id, options_from_collection_for_select(Tag.all, :id, :tag)%>
+	</div> -->
+
+	<div class="submit">
+		<%= f.submit "Skapa resurs" %>
+	</div>
+
+<% end %>
