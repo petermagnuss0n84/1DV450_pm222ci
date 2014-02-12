@@ -1,5 +1,19 @@
 <h1>Skapa en ny resurs</h1>
 
+<!--Tar fram valideringstext-->
+<% if @resource.errors.any? %>
+	<div id="error_message">
+		<h2><%= pluralize(@resource.errors.count, "fel") %> i formuläret gjorde att resursen inte kunde sparas:</h2>
+
+		<ul>
+			<% @resource.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
+
+<!--Formulär för att skapa en resurs-->
 <%= form_for @resource do |f| %>
 
 	<div class="text_field">
@@ -32,6 +46,7 @@
 		<%= f.select :licence_id, options_from_collection_for_select(Licence.all, :id, :licence_typ)%>
 	</div>
 
+	<!--TODO-->
 	<!-- <div class="select">
 		<%= f.label :tagg %>
 		<%= f.select :tag_id, options_from_collection_for_select(Tag.all, :id, :tag)%>

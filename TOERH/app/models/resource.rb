@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Resource < ActiveRecord::Base
   # attr_accessible :title, :body
   belongs_to :resource_type
@@ -11,4 +12,14 @@ class Resource < ActiveRecord::Base
   attr_accessible :user_id
   attr_accessible :resource_type_id
   attr_accessible :licence_id
+
+  validates :namn,
+            :presence => {:message => "måste anges"}
+
+  validates :url,
+            :presence => {:message => "måste anges"}
+  
+  validates :description,
+            :presence => {:message => "måste anges"}
+          
 end

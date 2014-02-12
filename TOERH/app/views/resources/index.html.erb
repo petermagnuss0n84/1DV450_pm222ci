@@ -2,11 +2,27 @@
 
 <% @resources.each do |resource| %>
 
-<%= link_to resource.description, resource.url%></br>
+<%= link_to resource.namn, resource.url%></br>
+<%=  resource.description%></br>
+<%=  resource.url%></br>
+<%=  resource.created_at%></br>
 
+
+
+	<!-- Användare till varje resurs -->
 	<% @users.each do |user| %>
 
 	<%= link_to user.firstname, user_path(user) %></br>
-	<% end %>
+	<% end %></br>
+
+	<!--Licenstyp till varje resurs-->
+				<!--TODO-->
+
+	<!--Resurstyp till varje resurs-->
+				<!--TODO-->
+
+	<!--Tagg till varje resurs-->
+				<!--TODO-->
+
 
 <% end %>
