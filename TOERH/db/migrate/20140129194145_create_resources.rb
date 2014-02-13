@@ -5,7 +5,7 @@ class CreateResources < ActiveRecord::Migration
     	t.references :resource_type
     	t.references :user
     	t.references :licence
-      t.references :tag
+      t.references :resource_tag
 
 
     	t.string :namn

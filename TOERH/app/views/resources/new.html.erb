@@ -47,10 +47,10 @@
 	</div>
 
 	<!--TODO-->
-	<!-- <div class="select">
+	<div class="select">
 		<%= f.label :tagg %>
-		<%= f.select :tag_id, options_from_collection_for_select(Tag.all, :id, :tag)%>
-	</div> -->
+		<%= f.select :resource_tag_id, options_from_collection_for_select(Tag.all, :id, :tag)%>
+	</div>
 
 	<div class="submit">
 		<%= f.submit "Skapa resurs" %>

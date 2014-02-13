@@ -18,30 +18,30 @@ rt1 = ResourceType.create(:resource_type => "link")
 rt2 = ResourceType.create(:resource_type => "picture")
 
 User.delete_all
-u1 = User.create(:firstname => "Peter", :surname => "Magnusson", :email => "petermagnusso84@gmail.com")
-u2 = User.create(:firstname => "Eric", :surname => "Forsberg", :email => "eric85@gmail.com")
+u1 = User.create(:firstname => "Peter", :surname => "Magnusson", :email => "petermagnusso84@gmail.com", :password_digest => "123")
+u2 = User.create(:firstname => "Eric", :surname => "Forsberg", :email => "eric85@gmail.com", :password_digest => "123")
 
 Licence.delete_all
 l1 = Licence.create(:licence_typ => "GNU")
 l2 = Licence.create(:licence_typ => "MIT")
 
-#Tag.delete_all
-#t1 = Tag.create(:tag => "Tagg1")
-#t2 = Tag.create(:tag => "Tagg2")
-#t3 = Tag.create(:tag => "Tagg3")
+Tag.delete_all
+t1 = Tag.create(:tag => "Tagg1")
+t2 = Tag.create(:tag => "Tagg2")
+t3 = Tag.create(:tag => "Tagg3")
 
 
 rt1.resources << r1
 u1.resources << r1
 l1.resources << r1
-#t3.resources << r1
+t3.resources << r1
 
 rt1.resources << r2
 u1.resources << r2
 l1.resources << r2
-#t1.resources << r2
+t1.resources << r2
 
 rt2.resources << r3
 u2.resources << r3
 l2.resources << r3
-#t2.resources << r3
+t2.resources << r3

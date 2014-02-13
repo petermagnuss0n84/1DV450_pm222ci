@@ -12,6 +12,7 @@ class Resource < ActiveRecord::Base
   attr_accessible :user_id
   attr_accessible :resource_type_id
   attr_accessible :licence_id
+  attr_accessible :resource_tag_id
 
   validates :namn,
             :presence => {:message => "måste anges"}

@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20140209143006) do
     t.integer  "resource_type_id"
     t.integer  "user_id"
     t.integer  "licence_id"
-    t.integer  "tag_id"
+    t.integer  "resource_tag_id"
     t.string   "namn"
     t.string   "url"
     t.text     "description"
@@ -61,18 +61,18 @@ ActiveRecord::Schema.define(:version => 20140209143006) do
   add_index "resources_tags", ["resource_id", "tag_id"], :name => "index_resources_tags_on_resource_id_and_tag_id"
 
   create_table "tags", :force => true do |t|
-    t.integer  "resource_id"
     t.string   "tag"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
-    t.string   "firstname",  :limit => 30
-    t.string   "surname",    :limit => 45
-    t.string   "email",                    :default => ""
-    t.datetime "created_at",                               :null => false
-    t.datetime "updated_at",                               :null => false
+    t.string   "firstname",       :limit => 30
+    t.string   "surname",         :limit => 45
+    t.string   "email",                         :null => false
+    t.string   "password_digest",               :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
 end
