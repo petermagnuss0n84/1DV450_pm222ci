@@ -16,6 +16,8 @@ TOERH::Application.routes.draw do
      resources :tags
      resources :resource_types
 
+     get 'apikeys' => 'apikeys#show', as: :apikey
+
 
   # Sample resource route with options:
   #   resources :products do

@@ -1,1 +1,30 @@
 <h1>Registrera ny användare</h1>
+
+<div id="login">
+
+<fieldset>
+
+<%= form_for @user do |f| %>
+
+	<p><%= f.label :firstname %></p>
+	<p><%= f.text_field :firstname %></p>
+
+	<p><%= f.label :surname %></p>
+	<p><%= f.text_field :surname %></p>
+
+	<p><%= f.label :email %></p>
+	<p><%= f.email_field :email %></p>
+
+	<p><%= f.label :password %></p>
+	<p><%= f.password_field :password %></p>
+
+	<p><%= f.label :password_confirmation %></p>
+	<p><%= f.password_field :password_confirmation %></p>
+
+	<p><%= f.submit "Registrera" %></p>
+
+	<% end %>
+
+</fieldset>
+
+</div>
