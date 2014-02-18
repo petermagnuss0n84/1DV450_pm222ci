@@ -18,6 +18,9 @@ TOERH::Application.routes.draw do
 
      get 'apikeys' => 'apikeys#show', as: :apikey
 
+     post 'login' => 'users#login', :as => "login"
+     get  'logout' => 'users#logout', as: :logout
+
 
   # Sample resource route with options:
   #   resources :products do

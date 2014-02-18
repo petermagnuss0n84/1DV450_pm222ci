@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   # attr_accessible :title, :body
+
   has_secure_password
 
   has_many :resources
@@ -7,6 +8,8 @@ class User < ActiveRecord::Base
   attr_accessible :firstname
   attr_accessible :surname
   attr_accessible :email
+  attr_accessible :password
+  attr_accessible :password_confirmation
   attr_accessible :password_digest
 
   # validates :email,
