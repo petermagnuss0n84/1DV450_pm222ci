@@ -1,3 +1,52 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.field_with_errors{
+	display: inline;
+	margin: 0;
+}
+
+.field_with_errors input{
+	border: 3px solid red;
+}
+
+.field_with_errors textarea{
+	border: 3px solid red;	
+}
+
+.notice{
+	background-color:red;
+	width:160px;
+}
+
+//Inloggingsformulär
+
+.loginform{
+	width:200px;
+}
+
+.login{
+	padding-left:650px;
+}
+
+.logintext{
+	padding-left:50px;
+}
+
+
+//Registeringsformulär för användare
+
+.registerform{
+	width:200px;
+
+}
+
+.register{
+	padding-left:650px;
+}
+
+.registertext{
+	padding-left:600px;
+}
+

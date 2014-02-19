@@ -2,10 +2,6 @@ class ResourcesController < ApplicationController
 
 def index
 	@resources = Resource.all
-	@users = User.all
-	#@user = User.find(params[:id])
-	@resource_types = ResourceType.all
-	@tags = Tag.all
 end
 
 def new

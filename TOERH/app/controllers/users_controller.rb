@@ -29,7 +29,7 @@ def login
 		redirect_to apikey_path
 	else
 		#TODO fixa CSS#
-		flash[:notice] = "Failed!"
+		flash[:notice] = "Inloggning misslyckades!"
 		redirect_to root_path
 	end	
 end

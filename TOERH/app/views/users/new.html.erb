@@ -1,25 +1,50 @@
-<h1>Registrera ny användare</h1>
 
-<div id="login">
 
-<fieldset>
+<h1 class="registertext">Registrera ny användare</h1>
+
+<div class="register">
+
+<% if @user.errors.any? %>
+	<div id="error_message">
+		<h2><%= pluralize(@user.errors.count, "fel") %> i formuläret gjorde att användaren inte kunde sparas:</h2>
+
+		<ul>
+			<% @user.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
+
+
+<fieldset class="registerform">
 
 <%= form_for @user do |f| %>
 
-	<p><%= f.label :firstname %></p>
+	<div class="text_field">
+	<p><%= f.label :förnamn %></p>
 	<p><%= f.text_field :firstname %></p>
+	</div>
 
-	<p><%= f.label :surname %></p>
+	<div class="text_field">
+	<p><%= f.label :efternamn %></p>
 	<p><%= f.text_field :surname %></p>
+	</div>
 
+	<div class="text_field">
 	<p><%= f.label :email %></p>
 	<p><%= f.email_field :email %></p>
+	</div>
 
-	<p><%= f.label :password %></p>
+	<div class="text_field">
+	<p><%= f.label :lösenord %></p>
 	<p><%= f.password_field :password %></p>
+	</div>
 
-	<p><%= f.label :password_confirmation %></p>
+	<div class="text_field">
+	<p><%= f.label :repetera_lösenord %></p>
 	<p><%= f.password_field :password_confirmation %></p>
+	</div>
 
 	<p><%= f.submit "Registrera" %></p>
 
