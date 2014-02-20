@@ -3,6 +3,7 @@ class CreateApiKeys < ActiveRecord::Migration
     create_table :api_keys do |t|
 
     	t.string :auth_token
+    	t.string :email
 
       t.timestamps
     end

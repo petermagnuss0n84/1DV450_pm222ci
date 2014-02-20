@@ -15,14 +15,17 @@ ActiveRecord::Schema.define(:version => 20140209143006) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "auth_token"
+    t.string   "email"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "applications", :force => true do |t|
-    t.string   "contact_email"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.string   "contact_email",   :null => false
+    t.string   "password_digest", :null => false
+    t.integer  "api_key_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "licences", :force => true do |t|

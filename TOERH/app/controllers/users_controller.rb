@@ -28,7 +28,6 @@ def login
 		session[:userid] = u.id
 		redirect_to apikey_path
 	else
-		#TODO fixa CSS#
 		flash[:notice] = "Inloggning misslyckades!"
 		redirect_to root_path
 	end	

@@ -1,4 +1,6 @@
-<h1>Skapa en ny resurs</h1>
+<h1 class="resourcetext">Skapa en ny resurs</h1>
+
+<div class="resourceform">
 
 <!--Tar fram valideringstext-->
 <% if @resource.errors.any? %>
@@ -12,7 +14,6 @@
 		</ul>
 	</div>
 <% end %>
-
 <!--Formulär för att skapa en resurs-->
 <%= form_for @resource do |f| %>
 
@@ -46,7 +47,7 @@
 		<%= f.select :licence_id, options_from_collection_for_select(Licence.all, :id, :licence_typ)%>
 	</div>
 
-	<!--TODO-->
+	<!--TODO fixa kryssrutor-->
 	<div class="select">
 		<%= f.label :tagg %>
 		<%= f.select :resource_tag_id, options_from_collection_for_select(Tag.all, :id, :tag)%>
@@ -57,3 +58,5 @@
 	</div>
 
 <% end %>
+
+</div>
