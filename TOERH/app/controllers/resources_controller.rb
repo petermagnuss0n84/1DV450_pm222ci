@@ -2,6 +2,10 @@ class ResourcesController < ApplicationController
 
 def index
 	@resources = Resource.all
+	respond_to do |format|
+		format.html
+		format.json { render json: @resources}
+	end
 end
 
 def new
