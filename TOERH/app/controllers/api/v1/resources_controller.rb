@@ -3,7 +3,8 @@ module Api
 		class ResourcesController < ApplicationController
 
 			#http__basic_authenticate_with :name => "admin", :password => "123"
-			#before_action :restrict_access
+			before_action :restrict_access, except: [:index, :show]
+
 			respond_to :json, :xml
 
 			def index
@@ -11,7 +12,7 @@ module Api
 				respond_with @resource
 
 				rescue
-        			error(404, 404, 'Resurserna hittades inte')
+        			error(404, 'Resurserna hittades inte')
 			end
 
 			def show
@@ -20,47 +21,50 @@ module Api
         		respond_with @resource	
 
         		rescue
-        			error(404, 404, 'Resursen hittades inte')
+        			error(404, 'Resursen hittades inte')
 			end
 
 			def create
-				@resource = Resource.create(params[:resource])
+				@resource = Resource.new
+				@resource.namn = resource_params[:namn]
+				@resource.url = resource_params[:url]
+				@resource.description = resource_params[:description]
+				@resource.user_id = resource_params[:user_id]
+				@resource.resource_type_id = resource_params[:resource_type_id]
+				@resource.resource_tag_id = resource_params[:resource_tag_id]
+				@resource.save
 
-				respond_with @resource
+				render 'api/v1/resources/show'
+
+				rescue
+        			error(400, 'Resursen kunde inte skapas')
+				
 			end
 
 			def update
 				@resource = Resource.update(params[:id], params[:resource])
 
 				respond_with @resource
+
+				rescue
+        			error(400, 'Resursen kunde inte sparas')
 			end
 
 			def destroy
 				@resource = Resource.destroy(params[:id])
 
 				respond_with @resource
+
+				render 'api/v1/resources/show'
+
+				rescue
+					error(404, 'Resursen kunde inte tas bort')
 			end
 
 			def resource_params
  				params.permit(:namn, :url, :description, :user_id, :resource_type_id, :licence_id, :resource_tag_id)
  			end
 
- 			
- 			#private
- 				#def restrict_access
- 				#	api_key = ApiKey.find_by_auth_token(params[:auth_token])
- 				#	head :unauthorized unless api_key
- 				#end
-
- 				#Skyddar mot klipp och klistra lösenord i url
- 				 private
-    				def restrict_access
-      				authenticate_or_request_with_http_token do |token, options|
-        			ApiKey.exists?(auth_token: token)
-      				end
-    			
- 			end
- 			
 
 		end
 	end

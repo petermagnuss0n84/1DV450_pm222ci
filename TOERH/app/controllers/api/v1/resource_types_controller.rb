@@ -4,7 +4,15 @@ module Api
 			respond_to :json, :xml
 
 			def index
-				respond_with ResourceType.all
+				@resourceType = ResourceType.all
+
+				respond_with @resourceType
+			end
+
+			def show
+				@resourceType = ResourceType.find(params[:id])
+
+				respond_with @resourceType
 			end
 
 		end

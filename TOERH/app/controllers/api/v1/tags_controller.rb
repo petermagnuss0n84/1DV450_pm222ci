@@ -4,7 +4,15 @@ module Api
 			respond_to :json, :xml
 
 			def index
-				respond_with Tag.all
+				@tag = Tag.all
+
+				respond_with @tag
+			end
+
+			def show
+				@tag = Tag.find(params[:id])
+
+				respond_with @tag
 			end
 
 		end

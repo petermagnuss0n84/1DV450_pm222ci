@@ -4,7 +4,15 @@ module Api
 			respond_to :json, :xml
 
 			def index
-				respond_with Licence.all
+				@licence = Licence.all
+
+				respond_with @licence
+			end
+
+			def show
+				@licence = Licence.find(params[:id])
+
+				respond_with @licence
 			end
 
 		end

@@ -4,7 +4,9 @@ module Api
 			respond_to :json, :xml
 
 			def index
-				respond_with User.all
+				@user User.all
+
+				respond_with @user
 			end
 
 			def show
@@ -15,15 +17,21 @@ module Api
 			end
 
 			def create
-				respond_with User.create(params[:user])
+				@user = User.create(params[:user])
+
+				respond_with @user
 			end
 
 			def update
-				respond_with User.update(params[:id], params[:user])
+				@user = User.update(params[:id], params[:user])
+
+				respond_with @user
 			end
 
 			def destroy
-				respond_with User.destroy(params[:id])
+				@user = User.destroy(params[:id])
+
+				respond_with @user
 			end
 			
 		end
