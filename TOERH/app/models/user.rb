@@ -6,12 +6,12 @@ class User < ActiveRecord::Base
 
   has_many :resources
 
-  attr_accessible :firstname
-  attr_accessible :surname
-  attr_accessible :email
-  attr_accessible :password
-  attr_accessible :password_confirmation
-  attr_accessible :password_digest
+  #attr_accessible :firstname
+  #attr_accessible :surname
+  #attr_accessible :email
+  #attr_accessible :password
+  #attr_accessible :password_confirmation
+  #attr_accessible :password_digest
 
    validates :firstname,
         :presence => {:message => "Du måste ange ett förnamn"}

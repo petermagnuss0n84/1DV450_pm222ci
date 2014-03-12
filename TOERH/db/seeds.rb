@@ -14,12 +14,13 @@ r2 = Resource.create(:namn => "feber", :url => "http://feber.com", :description 
 r3 = Resource.create(:namn => "bild", :url => "http://sonnyparlin.com/wp-content/uploads/2012/04/ruby-on-rails.jpg", :description => "bild på ruby")
 
 ResourceType.delete_all
-rt1 = ResourceType.create(:resource_type => "link")
-rt2 = ResourceType.create(:resource_type => "picture")
+rt1 = ResourceType.create(:resource_type => "Länk")
+rt2 = ResourceType.create(:resource_type => "Bild")
+rt2 = ResourceType.create(:resource_type => "Video")
 
 User.delete_all
-u1 = User.create(:firstname => "Peter", :surname => "Magnusson", :email => "petermagnusso84@gmail.com", :password_digest => "123")
-u2 = User.create(:firstname => "Eric", :surname => "Forsberg", :email => "eric85@gmail.com", :password_digest => "123")
+u1 = User.create(:firstname => "Peter", :surname => "Magnusson", :email => "petermagnusso84@gmail.com", :password => "123", :password_confirmation => "123")
+u2 = User.create(:firstname => "Eric", :surname => "Forsberg", :email => "eric85@gmail.com", :password => "123", :password_confirmation => "123")
 
 Licence.delete_all
 l1 = Licence.create(:licence_typ => "GNU")

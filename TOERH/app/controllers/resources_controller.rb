@@ -13,7 +13,7 @@ def new
 end
 
 def create
-	@resource = Resource.new(params[:resource])
+	@resource = Resource.new(resource_params)
 
 	if @resource.save
 		redirect_to resources_path
@@ -21,5 +21,12 @@ def create
 		render :action => "new"
 	end
 end
+
+ private
+
+#Använder mig av strong_parameters
+ def resource_params
+ 	params.require(:resource).permit(:namn, :url, :description, :user_id, :resource_type_id, :licence_id, :resource_tag_id)
+ end
 
 end
