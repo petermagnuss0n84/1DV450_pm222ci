@@ -1,4 +1,6 @@
 The Open Education Resource Handler
 ==============
 
-Webbramverk
+Rails version 4.0.3
+
+Skapa databas rake db:migrate
