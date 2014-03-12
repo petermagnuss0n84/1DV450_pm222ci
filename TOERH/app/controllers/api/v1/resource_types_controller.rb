@@ -7,12 +7,18 @@ module Api
 				@resourceType = ResourceType.all
 
 				respond_with @resourceType
+
+				rescue
+        			error(404, 'Resurstyperna hittades inte')
 			end
 
 			def show
 				@resourceType = ResourceType.find(params[:id])
 
 				respond_with @resourceType
+
+				rescue
+        			error(404, 'Resurstypen hittades inte')
 			end
 
 		end

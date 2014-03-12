@@ -7,12 +7,18 @@ module Api
 				@user User.all
 
 				respond_with @user
+
+				rescue
+        			error(404, 'Användarna hittades inte')
 			end
 
 			def show
 				@user = User.find(params[:id])
 
 				respond_with @user
+
+				rescue
+        			error(404, 'Användaren kunde inte hittas')
 
 			end
 
